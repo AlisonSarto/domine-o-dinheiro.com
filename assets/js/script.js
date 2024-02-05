@@ -1,13 +1,12 @@
 $(document).ready(function() {
 
+  var url = 'https://pay.kiwify.com.br/sjSqrd3';
+  var valor = 20;
+  
   var cupons = {
-    'cupom_1': {
-      url: 'url_1',
+    'PROMO25': {
+      url: 'https://pay.kiwify.com.br/eUdZizu',
       valor: 15
-    },
-    'cupom_2': {
-      url: 'url_2',
-      valor: 7
     },
   };
   
@@ -16,17 +15,16 @@ $(document).ready(function() {
 
   var cupom = params.get('cupom');
 
-  if (cupom != undefined) {
+  if (cupom != undefined && cupons.hasOwnProperty(cupom)) {
 
-    if (cupons.hasOwnProperty(cupom)) {
-      var url = cupons[cupom]['url'];
-      var valor = cupons[cupom]['valor'];
-
-      $('#btn-comprar').attr('href', url);
-      $('#valor').html(`R$${valor}`)
-    }
+    url = cupons[cupom]['url'];
+    valor = cupons[cupom]['valor'];
     
   }
+
+  $('#btn-comprar').attr('href', url);
+  $('#valor').html(`R$${valor}`);
+
 
   $('#btn-ir-comprar').click(function() {
     document.body.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
