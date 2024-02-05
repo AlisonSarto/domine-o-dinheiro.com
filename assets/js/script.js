@@ -10,8 +10,8 @@ $(document).ready(function() {
     },
   };
   
-  var url = new URL(window.location.href);
-  var params = new URLSearchParams(url.search);
+  var link = new URL(window.location.href);
+  var params = new URLSearchParams(link.search);
 
   var cupom = params.get('cupom');
 
