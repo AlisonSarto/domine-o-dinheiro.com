@@ -2,11 +2,12 @@ $(document).ready(function() {
 
   var url = 'https://pay.kiwify.com.br/sjSqrd3';
   var valor = 20;
-  
+  var valorAntigo = valor;
+
   var cupons = {
-    'PROMO25': {
+    '50-OFF': {
       url: 'https://pay.kiwify.com.br/eUdZizu',
-      valor: 15
+      valor: 10
     },
   };
   
@@ -19,6 +20,12 @@ $(document).ready(function() {
 
     url = cupons[cupom]['url'];
     valor = cupons[cupom]['valor'];
+
+    $('#cupom').text(cupom);
+    $('#container-cupom').show();
+
+    $('#antigo-valor').text(valorAntigo);
+    $('#container-valor-antigo').show();
     
   }
 
